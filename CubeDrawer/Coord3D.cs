@@ -19,17 +19,29 @@ namespace CubeDrawer
             Z = z;
         }
 
-        public Coord2D ProjectTo2d()
+        public Coord2D ProjectTo2d(Coord3D cameraLocation)
         {
-            double x = X / (Z / 80);
-            double y = Y / (Z / 80);
+            double distanceFromCamera = Pythogoras(this, cameraLocation);
+
+            double x = X / (distanceFromCamera / Z);
+            double y = Y / (distanceFromCamera / Z);
             return new Coord2D(x, y);
 
         }
 
-        public static void DrawLine(Graphics graafix, Coord3D coord1, Coord3D coord2)
+        public static void DrawLine(Graphics graafix, Coord3D cameraLocation, Coord3D coord1, Coord3D coord2)
         {
-            Coord2D.DrawLine(graafix, coord1.ProjectTo2d(), coord2.ProjectTo2d());
+            Coord2D.DrawLine(graafix, coord1.ProjectTo2d(cameraLocation), coord2.ProjectTo2d(cameraLocation));
+        }
+
+        private static double Pythogoras(Coord3D coord1, Coord3D coord2)
+        {
+            double deltaX = coord1.X - coord2.X;
+            double deltaY = coord1.Y - coord2.Y;
+            double deltaZ = coord1.Z - coord2.Z;
+
+            double pythogoras = Math.Sqrt((deltaX * deltaX) + (deltaY * deltaY) + (deltaZ * deltaZ));
+            return pythogoras;
         }
 
     }

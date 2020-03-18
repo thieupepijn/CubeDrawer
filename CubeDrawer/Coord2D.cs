@@ -18,7 +18,7 @@ namespace CubeDrawer
 
         public static void DrawLine(Graphics graafix, Coord2D coord1, Coord2D coord2)
         {
-            Pen pen = new Pen(Brushes.Red, 3);
+            Pen pen = new Pen(Brushes.Red, 5);
             graafix.DrawLine(pen, (int)coord1.X, (int)coord1.Y, (int)coord2.X, (int)coord2.Y);
         }
 

@@ -13,6 +13,8 @@ namespace CubeDrawer
             // int cubeHeight = Convert.ToInt16(args[1]);
             //  int cubeDepth = Convert.ToInt16(args[2]);
 
+            Coord3D cameraLocation = new Coord3D(1100, 1100, 1100);
+
             List<Coord3D> coords = new List<Coord3D>();
 
             //
@@ -31,20 +33,20 @@ namespace CubeDrawer
                 Graphics graafix = Graphics.FromImage(bitmap);
 
                 //front
-                Coord3D.DrawLine(graafix, coord1, coord2);
-                Coord3D.DrawLine(graafix, coord1, coord3);
-                Coord3D.DrawLine(graafix, coord2, coord4);
-                Coord3D.DrawLine(graafix, coord3, coord4);
+                Coord3D.DrawLine(graafix, cameraLocation, coord1, coord2);
+                Coord3D.DrawLine(graafix, cameraLocation, coord1, coord3);
+               // Coord3D.DrawLine(graafix, cameraLocation, coord2, coord4);
+             //   Coord3D.DrawLine(graafix, cameraLocation, coord3, coord4);
                 //back
-                Coord3D.DrawLine(graafix, coord5, coord6);
-                Coord3D.DrawLine(graafix, coord5, coord7);
-                Coord3D.DrawLine(graafix, coord6, coord8);
-                Coord3D.DrawLine(graafix, coord7, coord8);
+                Coord3D.DrawLine(graafix, cameraLocation, coord5, coord6);
+                Coord3D.DrawLine(graafix, cameraLocation, coord5, coord7);
+                Coord3D.DrawLine(graafix, cameraLocation, coord6, coord8);
+                Coord3D.DrawLine(graafix, cameraLocation, coord7, coord8);
                 //sides
-                Coord3D.DrawLine(graafix, coord1, coord5);
-                Coord3D.DrawLine(graafix, coord3, coord7);
-                Coord3D.DrawLine(graafix, coord2, coord6);
-                Coord3D.DrawLine(graafix, coord4, coord8);
+                Coord3D.DrawLine(graafix, cameraLocation, coord1, coord5);
+                Coord3D.DrawLine(graafix, cameraLocation, coord3, coord7);
+                Coord3D.DrawLine(graafix, cameraLocation, coord2, coord6);
+              //  Coord3D.DrawLine(graafix, cameraLocation, coord4, coord8);
 
 
 
