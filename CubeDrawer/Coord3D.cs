@@ -28,8 +28,8 @@ namespace CubeDrawer
         {
             double distanceFromCamera = Pythogoras(this, cameraLocation);
 
-            double x = X / (distanceFromCamera / Z);
-            double y = Y / (distanceFromCamera / Z);
+            double x = (X / (distanceFromCamera / Z)) * 15;
+            double y = (Y / (distanceFromCamera / Z)) * 15;
             return new Coord2D(x, y);
 
         }

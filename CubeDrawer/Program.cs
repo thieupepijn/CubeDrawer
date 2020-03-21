@@ -17,8 +17,8 @@ namespace CubeDrawer
 
             using (Bitmap bitmap = new Bitmap(2000, 2000))
             {
-                Cube Cube = new Cube(new Coord3D(10, 10, 10), 300, 300, 300);
-                Coord3D cameraLocation = new Coord3D(-500, -500, -500);
+                Cube3D Cube = new Cube3D(new Coord3D(10, 10, 10), 300, 300, 300);
+                Coord3D cameraLocation = new Coord3D(400, 400, -400);
 
                 using (Graphics graafix = Graphics.FromImage(bitmap))
                 {
