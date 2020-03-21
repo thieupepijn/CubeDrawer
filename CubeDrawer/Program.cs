@@ -22,7 +22,7 @@ namespace CubeDrawer
 
                 using (Graphics graafix = Graphics.FromImage(bitmap))
                 {
-                    Cube.Draw(graafix, cameraLocation);
+                    Cube.Draw(graafix, cameraLocation, new Coord2D(1000, 1000));
                     bitmap.Save(@"D:\Pepijn\Cube.jpg");
                 }
             }

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Drawing;
 using System.Text;
+using System.Linq;
 
 namespace CubeDrawer
 {
@@ -17,6 +18,8 @@ namespace CubeDrawer
         public Coord2D TopLeftBack { get; private set; }
         public Coord2D TopRightBack { get; private set; }
 
+        public List<Coord2D> All { get; private set; }
+
         public Cube2D(Cube3D Cube3d, Coord3D cameraLocation)
         {
             BottomLeftFront = Cube3d.BottomLeftFront.ProjectTo2d(cameraLocation);
@@ -28,13 +31,22 @@ namespace CubeDrawer
             BottomRightBack = Cube3d.BottomRightBack.ProjectTo2d(cameraLocation);
             TopLeftBack= Cube3d.TopLeftBack.ProjectTo2d(cameraLocation);
             TopRightBack = Cube3d.TopRightBack.ProjectTo2d(cameraLocation);
+
+            All = new List<Coord2D>();
+            All.Add(BottomLeftFront);
+            All.Add(BottomRightFront);
+            All.Add(TopLeftFront);
+            All.Add(TopRightFront);
+            All.Add(BottomLeftBack);
+            All.Add(BottomRightBack);
+            All.Add(TopLeftBack);
+            All.Add(TopRightBack);
         }
 
-       
-
-       
-        public void Draw(Graphics graafix)
+            
+        public void Draw(Graphics graafix, Coord2D middle)
         {
+            Center(middle);
             Coord2D.DrawLine(graafix, BottomLeftFront, BottomRightFront);
             Coord2D.DrawLine(graafix, BottomLeftFront, TopLeftFront);
            // Coord2D.DrawLine(graafix, BottomRightFront, TopRightFront);
@@ -51,6 +63,29 @@ namespace CubeDrawer
          //   Coord2D.DrawLine(graafix, TopRightFront, TopRightBack);
         }
 
+        private void Center(Coord2D middle)
+        {
+            Coord2D average = AverageCoordinate();
+            double deltaX = middle.X - average.X;
+            double deltaY = middle.Y - average.Y;
+
+            BottomLeftFront = BottomLeftFront.Add(deltaX, deltaY);
+            BottomRightFront = BottomRightFront.Add(deltaX, deltaY);
+            TopLeftFront = TopLeftFront.Add(deltaX, deltaY);
+            TopRightFront = TopRightFront.Add(deltaX, deltaY);
+
+            BottomLeftBack = BottomLeftBack.Add(deltaX, deltaY);
+            BottomRightBack = BottomRightBack.Add(deltaX, deltaY);
+            TopLeftBack = TopLeftBack.Add(deltaX, deltaY);
+            TopRightBack = TopRightBack.Add(deltaX, deltaY);   
+        }
+
+        private Coord2D AverageCoordinate()
+        {
+            double averageX = All.Average(c => c.X);
+            double averageY = All.Average(c => c.Y);
+            return new Coord2D(averageX, averageY);
+        }
 
     }
 }

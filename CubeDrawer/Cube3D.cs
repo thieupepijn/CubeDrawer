@@ -16,6 +16,7 @@ namespace CubeDrawer
         public Coord3D TopLeftBack { get; private set; }
         public Coord3D TopRightBack { get; private set; }
 
+
         public Cube3D(Coord3D bottomLeftOrigin, double width, double height, double depth)
         {
             BottomLeftFront = bottomLeftOrigin;
@@ -35,11 +36,11 @@ namespace CubeDrawer
         }
         
 
-        public void Draw(Graphics graafix, Coord3D cameraLocation)
+        public void Draw(Graphics graafix, Coord3D cameraLocation, Coord2D middle)
         {
 
             Cube2D cube2D = ProjectTo2D(cameraLocation);
-            cube2D.Draw(graafix);
+            cube2D.Draw(graafix, middle);
         }
 
 

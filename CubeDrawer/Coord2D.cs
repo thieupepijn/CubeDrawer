@@ -16,6 +16,11 @@ namespace CubeDrawer
             Y = y;
         }
 
+        public Coord2D Add(double x, double y)
+        {
+            return new Coord2D(X + x, Y + y);
+        }
+
         public static void DrawLine(Graphics graafix, Coord2D coord1, Coord2D coord2)
         {
             Pen pen = new Pen(Brushes.Red, 5);
