@@ -19,6 +19,11 @@ namespace CubeDrawer
             Z = z;
         }
 
+        public Coord3D Add(double x, double y, double z)
+        {
+            return new Coord3D(X + x, Y + y, Z + z);
+        }
+
         public Coord2D ProjectTo2d(Coord3D cameraLocation)
         {
             double distanceFromCamera = Pythogoras(this, cameraLocation);

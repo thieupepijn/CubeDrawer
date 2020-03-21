@@ -13,45 +13,18 @@ namespace CubeDrawer
             // int cubeHeight = Convert.ToInt16(args[1]);
             //  int cubeDepth = Convert.ToInt16(args[2]);
 
-            Coord3D cameraLocation = new Coord3D(1100, 1100, 1100);
 
-            List<Coord3D> coords = new List<Coord3D>();
-
-            //
-            Coord3D coord1 = new Coord3D(750, 750, 250);
-            Coord3D coord2 = new Coord3D(1000, 750, 250);
-            Coord3D coord3 = new Coord3D(750, 1000, 250);
-            Coord3D coord4 = new Coord3D(1000, 1000, 250);
-            //back
-            Coord3D coord5 = new Coord3D(750, 750, 500);
-            Coord3D coord6 = new Coord3D(1000, 750, 500);
-            Coord3D coord7 = new Coord3D(750, 1000, 500);
-            Coord3D coord8 = new Coord3D(1000, 1000, 500);
 
             using (Bitmap bitmap = new Bitmap(2000, 2000))
             {
-                Graphics graafix = Graphics.FromImage(bitmap);
+                Cube Cube = new Cube(new Coord3D(10, 10, 10), 300, 300, 300);
+                Coord3D cameraLocation = new Coord3D(-500, -500, -500);
 
-                //front
-                Coord3D.DrawLine(graafix, cameraLocation, coord1, coord2);
-                Coord3D.DrawLine(graafix, cameraLocation, coord1, coord3);
-               // Coord3D.DrawLine(graafix, cameraLocation, coord2, coord4);
-             //   Coord3D.DrawLine(graafix, cameraLocation, coord3, coord4);
-                //back
-                Coord3D.DrawLine(graafix, cameraLocation, coord5, coord6);
-                Coord3D.DrawLine(graafix, cameraLocation, coord5, coord7);
-                Coord3D.DrawLine(graafix, cameraLocation, coord6, coord8);
-                Coord3D.DrawLine(graafix, cameraLocation, coord7, coord8);
-                //sides
-                Coord3D.DrawLine(graafix, cameraLocation, coord1, coord5);
-                Coord3D.DrawLine(graafix, cameraLocation, coord3, coord7);
-                Coord3D.DrawLine(graafix, cameraLocation, coord2, coord6);
-              //  Coord3D.DrawLine(graafix, cameraLocation, coord4, coord8);
-
-
-
-
-                bitmap.Save(@"D:\Pepijn\Cube.jpg");
+                using (Graphics graafix = Graphics.FromImage(bitmap))
+                {
+                    Cube.Draw(graafix, cameraLocation);
+                    bitmap.Save(@"D:\Pepijn\Cube.jpg");
+                }
             }
 
 
