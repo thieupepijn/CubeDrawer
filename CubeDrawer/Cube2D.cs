@@ -47,10 +47,10 @@ namespace CubeDrawer
         public void Draw(Graphics graafix, Coord2D middle)
         {
             Center(middle);
-          //  Coord2D.DrawLine(graafix, BottomLeftFront, BottomRightFront);
+            Coord2D.DrawLine(graafix, BottomLeftFront, BottomRightFront);
             Coord2D.DrawLine(graafix, BottomLeftFront, TopLeftFront);
-           // Coord2D.DrawLine(graafix, BottomRightFront, TopRightFront);
-          //  Coord2D.DrawLine(graafix, TopLeftFront, TopRightFront);
+            Coord2D.DrawLine(graafix, BottomRightFront, TopRightFront);
+            Coord2D.DrawLine(graafix, TopLeftFront, TopRightFront);
 
             Coord2D.DrawLine(graafix, BottomLeftBack, BottomRightBack);
             Coord2D.DrawLine(graafix, BottomLeftBack, TopLeftBack);
@@ -59,8 +59,8 @@ namespace CubeDrawer
 
             Coord2D.DrawLine(graafix, BottomLeftFront, BottomLeftBack);
             Coord2D.DrawLine(graafix, TopLeftFront, TopLeftBack);
-           // Coord2D.DrawLine(graafix, BottomRightFront, BottomRightBack);
-          //  Coord2D.DrawLine(graafix, TopRightFront, TopRightBack);
+            Coord2D.DrawLine(graafix, BottomRightFront, BottomRightBack);
+            Coord2D.DrawLine(graafix, TopRightFront, TopRightBack);
         }
 
         private void Center(Coord2D middle)
