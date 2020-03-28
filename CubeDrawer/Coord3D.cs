@@ -28,8 +28,8 @@ namespace CubeDrawer
         {
             double distanceFromCamera = Distance(this, cameraLocation);
 
-            double x = (X / distanceFromCamera ) * 75;
-            double y = (Y / distanceFromCamera) * 75;
+            double x = (X / distanceFromCamera ) * 200;
+            double y = (Y / distanceFromCamera) * 200;
             return new Coord2D(x, y);
 
         }

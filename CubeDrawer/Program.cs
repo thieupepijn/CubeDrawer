@@ -17,13 +17,13 @@ namespace CubeDrawer
 
             using (Bitmap bitmap = new Bitmap(2000, 2000))
             {
-                Coord3D cubeorigin = new Coord3D(100, 100, 100);
-                double width = 200;
-                double height = 200;
-                double depth = 200;
+                Coord3D cubeorigin = new Coord3D(200, 200, 200);
+                double width = 400;
+                double height = 400;
+                double depth = 400;
 
                 Cube3D Cube = new Cube3D(cubeorigin , width, height, depth);
-                Coord3D cameraLocation = new Coord3D(0, 0, 0);
+                Coord3D cameraLocation = new Coord3D(0, 0, 1000);
 
                 using (Graphics graafix = Graphics.FromImage(bitmap))
                 {
