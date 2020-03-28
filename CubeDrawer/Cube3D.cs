@@ -21,13 +21,13 @@ namespace CubeDrawer
         {
             BottomLeftFront = bottomLeftOrigin;
             BottomRightFront = bottomLeftOrigin.Add(width, 0, 0);
-            TopLeftFront = bottomLeftOrigin.Add(0, height, 0);
-            TopRightFront = bottomLeftOrigin.Add(width, height, 0);
+            TopLeftFront = bottomLeftOrigin.Add(0, -height, 0);
+            TopRightFront = bottomLeftOrigin.Add(width, -height, 0);
 
             BottomLeftBack = bottomLeftOrigin.Add(0, 0, depth);
             BottomRightBack = bottomLeftOrigin.Add(width, 0, depth);
-            TopLeftBack = bottomLeftOrigin.Add(0, height, depth);
-            TopRightBack = bottomLeftOrigin.Add(width, height, depth);
+            TopLeftBack = bottomLeftOrigin.Add(0, -height, depth);
+            TopRightBack = bottomLeftOrigin.Add(width, -height, depth);
         }
 
         public Cube2D ProjectTo2D(Coord3D cameraLocation)

@@ -52,15 +52,15 @@ namespace CubeDrawer
             Coord2D.DrawLine(graafix, BottomRightFront, TopRightFront);
             Coord2D.DrawLine(graafix, TopLeftFront, TopRightFront);
 
-            Coord2D.DrawLine(graafix, BottomLeftBack, BottomRightBack);
+          //  Coord2D.DrawLine(graafix, BottomLeftBack, BottomRightBack);
             Coord2D.DrawLine(graafix, BottomLeftBack, TopLeftBack);
-           // Coord2D.DrawLine(graafix, BottomRightBack, TopRightBack);
-           // Coord2D.DrawLine(graafix, TopLeftBack, TopRightBack);
+          //  Coord2D.DrawLine(graafix, BottomRightBack, TopRightBack);
+          //  Coord2D.DrawLine(graafix, TopLeftBack, TopRightBack);
 
             Coord2D.DrawLine(graafix, BottomLeftFront, BottomLeftBack);
             Coord2D.DrawLine(graafix, TopLeftFront, TopLeftBack);
-            Coord2D.DrawLine(graafix, BottomRightFront, BottomRightBack);
-            //Coord2D.DrawLine(graafix, TopRightFront, TopRightBack);
+           // Coord2D.DrawLine(graafix, BottomRightFront, BottomRightBack);
+           // Coord2D.DrawLine(graafix, TopRightFront, TopRightBack);
         }
 
         private void Center(Coord2D middle)
