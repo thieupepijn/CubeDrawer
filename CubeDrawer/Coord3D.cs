@@ -39,23 +39,21 @@ namespace CubeDrawer
             Coord2D.DrawLine(graafix, coord1.ProjectTo2d(cameraLocation), coord2.ProjectTo2d(cameraLocation));
         }
 
-        private static double Distance(Coord3D coord1, Coord3D coord2)
-        {
-            double deltaZ = coord1.Z - coord2.Z;
-            return deltaZ;
-        }
+      //  private static double Distance(Coord3D coord1, Coord3D coord2)
+       // {
+        //    double deltaZ = coord1.Z - coord2.Z;
+         //   return deltaZ;
+       // }
 
-         /*
         private static double Distance(Coord3D coord1, Coord3D coord2)
         {
             double deltaX = coord1.X - coord2.X;
             double deltaY = coord1.Y - coord2.Y;
             double deltaZ = coord1.Z - coord2.Z;
-
             return Math.Sqrt((deltaX * deltaX) + (deltaY * deltaY) + (deltaZ * deltaZ));
         }
-        */
-    
+
+
 
     }
 }
