@@ -25,6 +25,18 @@ namespace CubeDrawer
             Y = Y + y;
         }
 
+        public void DrawLines(Graphics graafix, List<Coord2D> coords)
+        {
+            List<Coord2D> connected = Connected(coords);
+            connected.ForEach(c => DrawLine(graafix, c));
+        }
+
+        private void DrawLine(Graphics graafix, Coord2D other)
+        {
+            Pen pen = new Pen(Brushes.Red, 5);
+            graafix.DrawLine(pen, (int)X, (int)Y, (int)other.X, (int)other.Y);
+        }
+
         private List<Coord2D> Connected(List<Coord2D> coords)
         {
             List<Coord2D> connected = new List<Coord2D>();
@@ -51,17 +63,7 @@ namespace CubeDrawer
             }
         }
 
-        public void DrawLines(Graphics graafix, List<Coord2D> coords)
-        {
-            List<Coord2D> connected = Connected(coords);
-            connected.ForEach(c => DrawLine(graafix, c));
-        }
-
-        public  void DrawLine(Graphics graafix, Coord2D other)
-        {
-            Pen pen = new Pen(Brushes.Red, 5);
-            graafix.DrawLine(pen, (int)X, (int)Y, (int)other.X, (int)other.Y);
-        }
+       
 
 
 
