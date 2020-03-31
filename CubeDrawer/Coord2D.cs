@@ -10,16 +10,29 @@ namespace CubeDrawer
         public double X { get; private set; }
         public double Y { get; private set; }
 
-        public Coord2D(double x, double y)
+        public string Code { get; private set; }
+
+        public Coord2D(double x, double y, string code)
         {
             X = x;
             Y = y;
+            Code = code;
         }
 
         public Coord2D Add(double x, double y)
         {
-            return new Coord2D(X + x, Y + y);
+            return new Coord2D(X + x, Y + y, Code);
         }
+
+        private List<Coord2D> Connected(List<Coord2D> all)
+        {
+            return null;
+        }
+
+
+        //private bool Connected(Coord2D other)
+       // {
+        //}
 
         public static void DrawLine(Graphics graafix, Coord2D coord1, Coord2D coord2)
         {

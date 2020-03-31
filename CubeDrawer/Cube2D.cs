@@ -22,15 +22,15 @@ namespace CubeDrawer
 
         public Cube2D(Cube3D Cube3d, Coord3D cameraLocation)
         {
-            BottomLeftFront = Cube3d.BottomLeftFront.ProjectTo2d(cameraLocation);
-            BottomRightFront = Cube3d.BottomRightFront.ProjectTo2d(cameraLocation);
-            TopLeftFront = Cube3d.TopLeftFront.ProjectTo2d(cameraLocation);
-            TopRightFront = Cube3d.TopRightFront.ProjectTo2d(cameraLocation);
+            BottomLeftFront = Cube3d.LeftBottomFront.ProjectTo2d(cameraLocation);
+            BottomRightFront = Cube3d.RightBottomFront.ProjectTo2d(cameraLocation);
+            TopLeftFront = Cube3d.LeftTopFront.ProjectTo2d(cameraLocation);
+            TopRightFront = Cube3d.RightTopFront.ProjectTo2d(cameraLocation);
 
-            BottomLeftBack = Cube3d.BottomLeftBack.ProjectTo2d(cameraLocation);
-            BottomRightBack = Cube3d.BottomRightBack.ProjectTo2d(cameraLocation);
-            TopLeftBack= Cube3d.TopLeftBack.ProjectTo2d(cameraLocation);
-            TopRightBack = Cube3d.TopRightBack.ProjectTo2d(cameraLocation);
+            BottomLeftBack = Cube3d.LeftBottomBack.ProjectTo2d(cameraLocation);
+            BottomRightBack = Cube3d.RightBottomBack.ProjectTo2d(cameraLocation);
+            TopLeftBack= Cube3d.LeftTopBack.ProjectTo2d(cameraLocation);
+            TopRightBack = Cube3d.RightTopBack.ProjectTo2d(cameraLocation);
 
             All = new List<Coord2D>();
             All.Add(BottomLeftFront);
@@ -84,7 +84,7 @@ namespace CubeDrawer
         {
             double averageX = All.Average(c => c.X);
             double averageY = All.Average(c => c.Y);
-            return new Coord2D(averageX, averageY);
+            return new Coord2D(averageX, averageY, "Average");
         }
 
     }

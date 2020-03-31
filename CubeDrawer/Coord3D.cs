@@ -10,18 +10,20 @@ namespace CubeDrawer
         public double X { get; private set; }
         public double Y { get; private set; }
         public double Z { get; private set; }
+        public string Code { get; private set; }
 
 
-        public Coord3D(double x, double y, double z)
+        public Coord3D(double x, double y, double z, string code)
         {
             X = x;
             Y = y;
             Z = z;
+            Code = code;
         }
 
-        public Coord3D Add(double x, double y, double z)
+        public Coord3D Add(double x, double y, double z, string code)
         {
-            return new Coord3D(X + x, Y + y, Z + z);
+            return new Coord3D(X + x, Y + y, Z + z, code);
         }
 
         public Coord2D ProjectTo2d(Coord3D cameraLocation)
@@ -30,7 +32,7 @@ namespace CubeDrawer
 
             double x = (X * (distanceFromCamera / Z));
             double y = (Y * (distanceFromCamera / Z));
-            return new Coord2D(x, y);
+            return new Coord2D(x, y, Code);
 
         }
 
