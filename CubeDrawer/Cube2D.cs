@@ -47,20 +47,7 @@ namespace CubeDrawer
         public void Draw(Graphics graafix, Coord2D middle)
         {
             Center(middle);
-            Coord2D.DrawLine(graafix, BottomLeftFront, BottomRightFront);
-            Coord2D.DrawLine(graafix, BottomLeftFront, TopLeftFront);
-            Coord2D.DrawLine(graafix, BottomRightFront, TopRightFront);
-            Coord2D.DrawLine(graafix, TopLeftFront, TopRightFront);
-
-          //  Coord2D.DrawLine(graafix, BottomLeftBack, BottomRightBack);
-            Coord2D.DrawLine(graafix, BottomLeftBack, TopLeftBack);
-          //  Coord2D.DrawLine(graafix, BottomRightBack, TopRightBack);
-            Coord2D.DrawLine(graafix, TopLeftBack, TopRightBack);
-
-            Coord2D.DrawLine(graafix, BottomLeftFront, BottomLeftBack);
-            Coord2D.DrawLine(graafix, TopLeftFront, TopLeftBack);
-          //  Coord2D.DrawLine(graafix, BottomRightFront, BottomRightBack);
-            Coord2D.DrawLine(graafix, TopRightFront, TopRightBack);
+            All.ForEach(c => c.DrawLines(graafix, All));
         }
 
         private void Center(Coord2D middle)
@@ -68,16 +55,7 @@ namespace CubeDrawer
             Coord2D average = AverageCoordinate();
             double deltaX = middle.X - average.X;
             double deltaY = middle.Y - average.Y;
-
-            BottomLeftFront = BottomLeftFront.Add(deltaX, deltaY);
-            BottomRightFront = BottomRightFront.Add(deltaX, deltaY);
-            TopLeftFront = TopLeftFront.Add(deltaX, deltaY);
-            TopRightFront = TopRightFront.Add(deltaX, deltaY);
-
-            BottomLeftBack = BottomLeftBack.Add(deltaX, deltaY);
-            BottomRightBack = BottomRightBack.Add(deltaX, deltaY);
-            TopLeftBack = TopLeftBack.Add(deltaX, deltaY);
-            TopRightBack = TopRightBack.Add(deltaX, deltaY);   
+            All.ForEach(c => c.Add(deltaX, deltaY));
         }
 
         private Coord2D AverageCoordinate()

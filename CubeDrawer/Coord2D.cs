@@ -19,26 +19,51 @@ namespace CubeDrawer
             Code = code;
         }
 
-        public Coord2D Add(double x, double y)
+        public void Add(double x, double y)
         {
-            return new Coord2D(X + x, Y + y, Code);
+            X = X + x;
+            Y = Y + y;
         }
 
-        private List<Coord2D> Connected(List<Coord2D> all)
+        private List<Coord2D> Connected(List<Coord2D> coords)
         {
-            return null;
+            List<Coord2D> connected = new List<Coord2D>();
+            foreach(Coord2D coord in coords)
+            {
+                if (Connected(coord))
+                {
+                    connected.Add(coord);
+                }
+            }
+            return connected;
         }
 
 
-        //private bool Connected(Coord2D other)
-       // {
-        //}
+        private bool Connected(Coord2D other)
+        {
+            if (UtilString.NumberOfCharactersEqual(Code, other.Code) == 2)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
 
-        public static void DrawLine(Graphics graafix, Coord2D coord1, Coord2D coord2)
+        public void DrawLines(Graphics graafix, List<Coord2D> coords)
+        {
+            List<Coord2D> connected = Connected(coords);
+            connected.ForEach(c => DrawLine(graafix, c));
+        }
+
+        public  void DrawLine(Graphics graafix, Coord2D other)
         {
             Pen pen = new Pen(Brushes.Red, 5);
-            graafix.DrawLine(pen, (int)coord1.X, (int)coord1.Y, (int)coord2.X, (int)coord2.Y);
+            graafix.DrawLine(pen, (int)X, (int)Y, (int)other.X, (int)other.Y);
         }
+
+
 
     }
 }

@@ -36,10 +36,10 @@ namespace CubeDrawer
 
         }
 
-        public static void DrawLine(Graphics graafix, Coord3D cameraLocation, Coord3D coord1, Coord3D coord2)
-        {
-            Coord2D.DrawLine(graafix, coord1.ProjectTo2d(cameraLocation), coord2.ProjectTo2d(cameraLocation));
-        }
+     //   public static void DrawLine(Graphics graafix, Coord3D cameraLocation, Coord3D coord1, Coord3D coord2)
+      //  {
+      //      Coord2D.DrawLine(graafix, coord1.ProjectTo2d(cameraLocation), coord2.ProjectTo2d(cameraLocation));
+      //  }
 
       //  private static double Distance(Coord3D coord1, Coord3D coord2)
        // {
