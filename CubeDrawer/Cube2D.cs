@@ -39,7 +39,7 @@ namespace CubeDrawer
         {
             double averageX = Corners.Average(c => c.X);
             double averageY = Corners.Average(c => c.Y);
-            return new Coord2D(averageX, averageY, "Average");
+            return new Coord2D(averageX, averageY);
         }
 
     }

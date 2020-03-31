@@ -19,6 +19,13 @@ namespace CubeDrawer
             Code = code;
         }
 
+        public Coord2D(double x, double y)
+        {
+            X = x;
+            Y = y;
+            Code = string.Empty;
+        }
+
         public void Add(double x, double y)
         {
             X = X + x;

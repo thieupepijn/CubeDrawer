@@ -21,6 +21,14 @@ namespace CubeDrawer
             Code = code;
         }
 
+        public Coord3D(double x, double y, double z)
+        {
+            X = x;
+            Y = y;
+            Z = z;
+            Code = string.Empty;
+        }
+
         public Coord3D Add(double x, double y, double z, string code)
         {
             return new Coord3D(X + x, Y + y, Z + z, code);
@@ -28,7 +36,7 @@ namespace CubeDrawer
 
         public Coord2D ProjectTo2d(Coord3D cameraLocation)
         {
-            double distanceFromCamera = Distance(this, cameraLocation);
+            double distanceFromCamera = PythogoreanDistance(this, cameraLocation);
 
             double x = (X * (distanceFromCamera / Z));
             double y = (Y * (distanceFromCamera / Z));
@@ -36,18 +44,7 @@ namespace CubeDrawer
 
         }
 
-     //   public static void DrawLine(Graphics graafix, Coord3D cameraLocation, Coord3D coord1, Coord3D coord2)
-      //  {
-      //      Coord2D.DrawLine(graafix, coord1.ProjectTo2d(cameraLocation), coord2.ProjectTo2d(cameraLocation));
-      //  }
-
-      //  private static double Distance(Coord3D coord1, Coord3D coord2)
-       // {
-        //    double deltaZ = coord1.Z - coord2.Z;
-         //   return deltaZ;
-       // }
-
-        private static double Distance(Coord3D coord1, Coord3D coord2)
+        private static double PythogoreanDistance(Coord3D coord1, Coord3D coord2)
         {
             double deltaX = coord1.X - coord2.X;
             double deltaY = coord1.Y - coord2.Y;
