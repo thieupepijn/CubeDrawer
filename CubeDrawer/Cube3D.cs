@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Drawing;
 using System.Text;
+using System.Linq;
 
 namespace CubeDrawer
 {
@@ -24,8 +25,18 @@ namespace CubeDrawer
 
         public void Draw(Graphics graafix, Coord3D cameraLocation, Coord2D middle)
         {
+         //    SetFartestCornerFromCameraHidden(cameraLocation);
+          //  Corners[5].Hidden = true;
             Cube2D cube2D = ProjectTo2D(cameraLocation);
             cube2D.Draw(graafix, middle);
+        }
+
+        private void SetFartestCornerFromCameraHidden(Coord3D cameralocation)
+        {
+           Corners = Corners.OrderBy(c => c.PythogoreanDistance(cameralocation)).ToList();
+           Coord3D closest = Corners[0];
+           Corners = Corners.OrderByDescending(c => c.PythogoreanDistance(closest)).ToList();
+            Corners[0].Hidden = true;
         }
 
         private Cube2D ProjectTo2D(Coord3D cameraLocation)

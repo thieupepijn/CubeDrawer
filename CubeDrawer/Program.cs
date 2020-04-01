@@ -23,7 +23,7 @@ namespace CubeDrawer
                 double depth = 200;
 
                 Cube3D Cube = new Cube3D(cubeorigin , width, height, depth);
-                Coord3D cameraLocation = new Coord3D(500, 300, -800);
+                Coord3D cameraLocation = new Coord3D(500, 310, -800);
 
                 using (Graphics graafix = Graphics.FromImage(bitmap))
                 {

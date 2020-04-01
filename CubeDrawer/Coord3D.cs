@@ -12,6 +12,8 @@ namespace CubeDrawer
         public double Z { get; private set; }
         public string Code { get; private set; }
 
+        public bool Hidden { get; set; }
+
 
         public Coord3D(double x, double y, double z, string code)
         {
@@ -19,6 +21,7 @@ namespace CubeDrawer
             Y = y;
             Z = z;
             Code = code;
+            Hidden = false;
         }
 
         public Coord3D(double x, double y, double z)
@@ -27,6 +30,7 @@ namespace CubeDrawer
             Y = y;
             Z = z;
             Code = string.Empty;
+            Hidden = false;
         }
 
         public Coord3D Add(double x, double y, double z, string code)
@@ -36,19 +40,19 @@ namespace CubeDrawer
 
         public Coord2D ProjectTo2d(Coord3D cameraLocation)
         {
-            double distanceFromCamera = PythogoreanDistance(this, cameraLocation);
+            double distanceFromCamera = PythogoreanDistance(cameraLocation);
 
             double x = (X * (distanceFromCamera / Z));
             double y = (Y * (distanceFromCamera / Z));
-            return new Coord2D(x, y, Code);
+            return new Coord2D(x, y, Code, Hidden);
 
         }
 
-        private static double PythogoreanDistance(Coord3D coord1, Coord3D coord2)
+        public double PythogoreanDistance(Coord3D other)
         {
-            double deltaX = coord1.X - coord2.X;
-            double deltaY = coord1.Y - coord2.Y;
-            double deltaZ = coord1.Z - coord2.Z;
+            double deltaX = X - other.X;
+            double deltaY = Y - other.Y;
+            double deltaZ = Z - other.Z;
             return Math.Sqrt((deltaX * deltaX) + (deltaY * deltaY) + (deltaZ * deltaZ));
         }
 

@@ -9,14 +9,16 @@ namespace CubeDrawer
     {
         public double X { get; private set; }
         public double Y { get; private set; }
-
         public string Code { get; private set; }
 
-        public Coord2D(double x, double y, string code)
+        public bool Hidden { get; private set; }
+
+        public Coord2D(double x, double y, string code, bool hidden)
         {
             X = x;
             Y = y;
             Code = code;
+            Hidden = hidden;
         }
 
         public Coord2D(double x, double y)
@@ -24,6 +26,7 @@ namespace CubeDrawer
             X = x;
             Y = y;
             Code = string.Empty;
+            Hidden = false;
         }
 
         public void Add(double x, double y)
@@ -34,14 +37,20 @@ namespace CubeDrawer
 
         public void DrawLines(Graphics graafix, List<Coord2D> coords)
         {
-            List<Coord2D> connected = Connected(coords);
-            connected.ForEach(c => DrawLine(graafix, c));
+            if (!Hidden)
+            {
+                List<Coord2D> connected = Connected(coords);
+                connected.ForEach(c => DrawLine(graafix, c));
+            }
         }
 
         private void DrawLine(Graphics graafix, Coord2D other)
         {
-            Pen pen = new Pen(Brushes.Red, 5);
-            graafix.DrawLine(pen, (int)X, (int)Y, (int)other.X, (int)other.Y);
+            if (!other.Hidden)
+            {
+                Pen pen = new Pen(Brushes.Red, 5);
+                graafix.DrawLine(pen, (int)X, (int)Y, (int)other.X, (int)other.Y);
+            }
         }
 
         private List<Coord2D> Connected(List<Coord2D> coords)
