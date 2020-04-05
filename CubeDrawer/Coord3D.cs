@@ -38,23 +38,14 @@ namespace CubeDrawer
             return new Coord3D(X + x, Y + y, Z + z, code);
         }
 
-        public Coord2D ProjectTo2d(Coord3D cameraLocation)
+        public Coord2D ProjectTo2d()
         {
-            double distanceFromCamera = PythogoreanDistance(cameraLocation);
-
-            double x = (X * (distanceFromCamera / Z));
-            double y = (Y * (distanceFromCamera / Z));
+            double x = X +  Math.Sqrt(Z * Z / 4);
+            double y = Y - Math.Sqrt(Z * Z / 4);
             return new Coord2D(x, y, Code, Hidden);
 
         }
 
-        public double PythogoreanDistance(Coord3D other)
-        {
-            double deltaX = X - other.X;
-            double deltaY = Y - other.Y;
-            double deltaZ = Z - other.Z;
-            return Math.Sqrt((deltaX * deltaX) + (deltaY * deltaY) + (deltaZ * deltaZ));
-        }
 
 
 

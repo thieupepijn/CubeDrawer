@@ -23,25 +23,17 @@ namespace CubeDrawer
             Corners.Add(bottomLeftOrigin.Add(width, -height, depth, "RTB")); //Right Top Back
         }
 
-        public void Draw(Graphics graafix, Coord3D cameraLocation, Coord2D middle)
+        public void Draw(Graphics graafix, Coord2D middle)
         {
-         //    SetFartestCornerFromCameraHidden(cameraLocation);
-          //  Corners[5].Hidden = true;
-            Cube2D cube2D = ProjectTo2D(cameraLocation);
+            Corners[4].Hidden = true;
+            Cube2D cube2D = ProjectTo2D();
             cube2D.Draw(graafix, middle);
         }
 
-        private void SetFartestCornerFromCameraHidden(Coord3D cameralocation)
-        {
-           Corners = Corners.OrderBy(c => c.PythogoreanDistance(cameralocation)).ToList();
-           Coord3D closest = Corners[0];
-           Corners = Corners.OrderByDescending(c => c.PythogoreanDistance(closest)).ToList();
-            Corners[0].Hidden = true;
-        }
 
-        private Cube2D ProjectTo2D(Coord3D cameraLocation)
+        private Cube2D ProjectTo2D()
         {
-            return new Cube2D(this, cameraLocation);
+            return new Cube2D(this);
         }
         
 

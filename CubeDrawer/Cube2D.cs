@@ -11,12 +11,12 @@ namespace CubeDrawer
 
         public List<Coord2D> Corners { get; private set; }
 
-        public Cube2D(Cube3D cube3d, Coord3D cameraLocation)
+        public Cube2D(Cube3D cube3d)
         {
             Corners = new List<Coord2D>();
             foreach(Coord3D coord3D in cube3d.Corners)
             {
-                Coord2D coord2D = coord3D.ProjectTo2d(cameraLocation);
+                Coord2D coord2D = coord3D.ProjectTo2d();
                 Corners.Add(coord2D);
             }           
         }
