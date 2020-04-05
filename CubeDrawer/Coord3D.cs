@@ -12,10 +12,10 @@ namespace CubeDrawer
         public double Z { get; private set; }
         public string Code { get; private set; }
 
-        public bool Hidden { get; set; }
+        public bool Hidden { get; private set; }
 
 
-        public Coord3D(double x, double y, double z, string code)
+        public Coord3D(double x, double y, double z, string code, bool hidden)
         {
             X = x;
             Y = y;
@@ -33,9 +33,9 @@ namespace CubeDrawer
             Hidden = false;
         }
 
-        public Coord3D Add(double x, double y, double z, string code)
+        public Coord3D Add(double x, double y, double z, string code, bool hidden)
         {
-            return new Coord3D(X + x, Y + y, Z + z, code);
+            return new Coord3D(X + x, Y + y, Z + z, code, hidden);
         }
 
         public Coord2D ProjectTo2d()
