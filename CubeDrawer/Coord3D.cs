@@ -46,6 +46,14 @@ namespace CubeDrawer
 
         }
 
+        public void MirrorY(double centerY)
+        {
+            double distance = centerY - Y;
+            Y = centerY + distance;
+
+        }
+
+
 
 
 

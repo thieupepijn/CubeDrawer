@@ -21,7 +21,7 @@ namespace CubeDrawer
                 Cube3D Cube = new Cube3D(cubeorigin, cubeWidth, cubeHeight, cubeDepth);
                 using (Graphics graafix = Graphics.FromImage(bitmap))
                 {
-                    Cube.Draw(graafix, new Coord2D(1000, 1000));
+                    Cube.Draw(graafix, new Coord2D(1000, 1000), 2000);
                     bitmap.Save(outputFilepath);
                 }
             }
