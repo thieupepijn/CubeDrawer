@@ -24,7 +24,7 @@ namespace CubeDrawer
         public void Draw(Graphics graafix, Coord2D middle)
         {
             Center(middle);
-            Corners.ForEach(c => c.DrawLines(graafix, Corners));
+            Corners.ForEach(c => c.Draw(graafix, Corners));
         }
 
         private void Center(Coord2D middle)
