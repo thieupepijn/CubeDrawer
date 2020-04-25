@@ -28,7 +28,6 @@ namespace CubeDrawer
                 return;
             }
 
-           
             string outputFilepath = args[3];
 
             using (Bitmap bitmap = new Bitmap(2000, 2000))
@@ -39,7 +38,14 @@ namespace CubeDrawer
                 using (Graphics graafix = Graphics.FromImage(bitmap))
                 {
                     Cube.Draw(graafix, new Coord2D(1000, 1000), 2000);
-                    bitmap.Save(outputFilepath);
+                    try
+                    {
+                        bitmap.Save(outputFilepath);
+                    }
+                    catch
+                    {
+                        Console.WriteLine("Could not write to file \"{0}\"", outputFilepath);
+                    }
                 }
             }
         }
