@@ -8,10 +8,27 @@ namespace CubeDrawer
     {
         static void Main(string[] args)
         {
-            int cubeWidth = Convert.ToInt16(args[0]);
-            int cubeHeight = Convert.ToInt16(args[1]);
-            int cubeDepth = Convert.ToInt16(args[2]);
+            if (args.Length < 4)
+            {
+                Console.WriteLine("Draws a cube to specified image-file");
+                Console.WriteLine("Usage: CubeDrawer <CubeWidth> <CubeHeight> <CubeDepth> <ImageFilePath>");
+                return;
+            }
 
+            int cubeWidth = 0, cubeHeight = 0, cubeDepth = 0;
+            try
+            {
+                cubeWidth = ParseCubeDimensionParameter(args[0]);
+                cubeHeight = ParseCubeDimensionParameter(args[1]);
+                cubeDepth = ParseCubeDimensionParameter(args[2]);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                return;
+            }
+
+           
             string outputFilepath = args[3];
 
             using (Bitmap bitmap = new Bitmap(2000, 2000))
@@ -25,7 +42,27 @@ namespace CubeDrawer
                     bitmap.Save(outputFilepath);
                 }
             }
-
         }
+
+        private static int ParseCubeDimensionParameter(string dimension)
+        {
+            try
+            {
+                int number = Convert.ToInt16(dimension);
+                if (number < 1)
+                {
+                    throw new Exception(string.Format("{0} is not a valid cube-dimension", dimension), null);
+                }
+                else
+                {
+                    return number;
+                }
+            }
+            catch
+            {
+                throw new Exception(string.Format("{0} is not a valid cube-dimension", dimension), null);
+            }
+        }
+    
     }
 }

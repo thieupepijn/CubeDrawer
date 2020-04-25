@@ -21,7 +21,7 @@ namespace CubeDrawer
             Y = y;
             Z = z;
             Code = code;
-            Hidden = false;
+            Hidden = hidden;
         }
 
         public Coord3D(double x, double y, double z)
@@ -40,7 +40,7 @@ namespace CubeDrawer
 
         public Coord2D ProjectTo2d()
         {
-            double x = X +  Math.Sqrt(Z * Z / 4);
+            double x = X -  Math.Sqrt(Z * Z / 4);
             double y = Y - Math.Sqrt(Z * Z / 4);
             return new Coord2D(x, y, Code, Hidden);
 

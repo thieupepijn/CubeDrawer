@@ -40,8 +40,7 @@ namespace CubeDrawer
             if (!Hidden)
             {
                 DrawLines(graafix, coords);
-                graafix.DrawString(Code, new Font("Arial", 25), Brushes.Black, new PointF((float)X, (float)Y)); 
-               // graafix.DrawEllipse(new Pen(Brushes.Black, 3), X, Y,, 20);
+              //  graafix.DrawString(Code, new Font("Arial", 25), Brushes.Black, new PointF((float)X, (float)Y)); 
             }
         }
 

@@ -18,7 +18,7 @@ namespace CubeDrawer
             Corners.Add(bottomLeftOrigin.Add(0, height, 0, "LTF", false)); //Left Top Front
             Corners.Add(bottomLeftOrigin.Add(width, height, 0, "RTF", false)); //Right Top Front
             Corners.Add(bottomLeftOrigin.Add(0, 0, depth, "LBB", false)); //Left Bottom Back
-            Corners.Add(bottomLeftOrigin.Add(width, 0, depth, "RBB", false)); //Right Bottom Back
+            Corners.Add(bottomLeftOrigin.Add(width, 0, depth, "RBB", true)); //Right Bottom Back
             Corners.Add(bottomLeftOrigin.Add(0, height, depth, "LTB", false)); //Left Top Back
             Corners.Add(bottomLeftOrigin.Add(width, height, depth, "RTB", false)); //Right Top Back
         }
